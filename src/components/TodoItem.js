@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "../App";
+import { TodoContext } from "../contexts/TodoContext";
 
 export const TodoItem = ({ todo }) => {
   const { state, dispatch } = useContext(TodoContext);

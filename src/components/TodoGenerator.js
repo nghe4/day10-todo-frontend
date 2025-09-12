@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useState } from "react";
-import { TodoContext } from "../App";
+import { TodoContext } from "../contexts/TodoContext";
 
 export const TodoGenerator = () => {
   const [input, setInput] = useState("");

@@ -1,6 +1,7 @@
 import "./App.css";
 import { createContext, useReducer } from "react";
 import { TodoGroup } from "./components/TodoGroup";
+import { TodoGenerator } from "./components/TodoGenerator";
 
 export const initState = [
   { id: 1, text: "the first todo", done: false },
@@ -18,6 +19,13 @@ export const todoReducer = (state, action) => {
         }
         return item;
       });
+    case "ADD_TODO":
+      const newTodo = {
+        id: state.length + 1,
+        text: action.payload.text,
+        done: action.payload.done,
+      };
+      return [...state, newTodo];
     default:
       break;
   }
@@ -30,6 +38,7 @@ function App() {
     <div>
       <TodoContext.Provider value={{ state, dispatch }}>
         <TodoGroup />
+        <TodoGenerator />
       </TodoContext.Provider>
     </div>
   );

@@ -4,12 +4,23 @@ import { TodoGroup } from "./components/TodoGroup";
 
 export const initState = [
   { id: 1, text: "the first todo", done: false },
-  { id: 2, text: "the second todo", done: true },
+  { id: 2, text: "the second todo", done: false },
 ];
 
 export const TodoContext = createContext();
 
 export const todoReducer = (state, action) => {
+  switch (action.type) {
+    case "TOGGLE_TODO":
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, done: !item.done };
+        }
+        return item;
+      });
+    default:
+      break;
+  }
   return state;
 };
 

@@ -13,12 +13,12 @@ export const initState = [
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initState);
   return (
-    <div>
+    <main>
       <TodoContext.Provider value={{ state, dispatch }}>
         <TodoGroup />
         <TodoGenerator />
       </TodoContext.Provider>
-    </div>
+    </main>
   );
 }
 

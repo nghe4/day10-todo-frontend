@@ -11,6 +11,7 @@ export const TodoGenerator = () => {
   };
 
   const handleAddTodo = () => {
+    if (input.trim() === "") return;
     dispatch({ type: "ADD_TODO", payload: { text: input, done: false } });
     setInput("");
   };

@@ -7,6 +7,7 @@ export const TodoGroup = () => {
 
   return (
     <div>
+      <h2>Todo List</h2>
       <div>
         {state.length === 0 ? (
           <p>Add the things you need to do today...</p>

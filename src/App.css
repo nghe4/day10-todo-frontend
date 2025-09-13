@@ -27,6 +27,7 @@ main {
 .todo-generator button {
   margin-left: 10px;
   padding: 8px;
+  cursor: pointer;
 }
 
 .todo-generator input {

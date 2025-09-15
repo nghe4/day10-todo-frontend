@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 
 export const TodoItem = ({ todo }) => {
-  const { state, dispatch } = useContext(TodoContext);
+  const { dispatch } = useContext(TodoContext);
 
   const makeAsDone = () => {
     dispatch({

@@ -4,6 +4,7 @@ import { TodoContext } from "./contexts/TodoContext";
 import { todoReducer } from "./reducers/TodoReducer";
 import { HomePage } from "./pages/HomePage";
 import { ErrorPage } from "./pages/ErrorPage";
+import { AboutUsPage } from "./pages/AboutUsPage";
 import {
   createBrowserRouter,
   NavLink,
@@ -18,6 +19,9 @@ const DefaultLayout = () => {
         <nav>
           <li>
             <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About Us</NavLink>
           </li>
         </nav>
       </header>
@@ -34,6 +38,11 @@ const router = createBrowserRouter([
     element: <DefaultLayout />,
     errorElement: <ErrorPage />,
     children: [{ path: "/", element: <HomePage /> }],
+  },
+  {
+    path: "/about",
+    element: <DefaultLayout />,
+    children: [{ path: "/about", element: <AboutUsPage /> }],
   },
 ]);
 

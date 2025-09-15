@@ -8,9 +8,11 @@ export const TodoItem = ({ todo }) => {
   const navigate = useNavigate();
 
   const makeAsDone = () => {
-    dispatch({
-      type: "TOGGLE_TODO",
-      payload: { id: todo.id },
+    api.put(`/todos/${todo.id}`, { ...todo, done: !todo.done }).then(() => {
+      dispatch({
+        type: "TOGGLE_TODO",
+        payload: { id: todo.id },
+      });
     });
   };
 

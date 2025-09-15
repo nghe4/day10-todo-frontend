@@ -5,6 +5,7 @@ import { todoReducer } from "./reducers/TodoReducer";
 import { HomePage } from "./pages/HomePage";
 import { ErrorPage } from "./pages/ErrorPage";
 import { AboutUsPage } from "./pages/AboutUsPage";
+import { TodoDetailPage } from "./pages/TodoDetailPage";
 import {
   createBrowserRouter,
   NavLink,
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
     path: "/about",
     element: <DefaultLayout />,
     children: [{ path: "/about", element: <AboutUsPage /> }],
+  },
+  {
+    path: "/todo/:id",
+    element: <DefaultLayout />,
+    children: [{ path: "/todo/:id", element: <TodoDetailPage /> }],
   },
 ]);
 

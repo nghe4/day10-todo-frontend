@@ -16,6 +16,8 @@ export const todoReducer = (state, action) => {
       return [...state, newTodo];
     case "DELETE_TODO":
       return state.filter((item) => item.id !== action.payload.id);
+    case "LOAD_TODOS":
+      return action.payload;
     default:
       break;
   }

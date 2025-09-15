@@ -6,6 +6,7 @@ import { HomePage } from "./pages/HomePage";
 import { ErrorPage } from "./pages/ErrorPage";
 import { AboutUsPage } from "./pages/AboutUsPage";
 import { TodoDetailPage } from "./pages/TodoDetailPage";
+import { DoneListPage } from "./pages/DoneListPage";
 import {
   createBrowserRouter,
   NavLink,
@@ -20,6 +21,9 @@ const DefaultLayout = () => {
         <nav>
           <li>
             <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/done">Done List</NavLink>
           </li>
           <li>
             <NavLink to="/about">About Us</NavLink>
@@ -49,6 +53,11 @@ const router = createBrowserRouter([
     path: "/todo/:id",
     element: <DefaultLayout />,
     children: [{ path: "/todo/:id", element: <TodoDetailPage /> }],
+  },
+  {
+    path: "/done",
+    element: <DefaultLayout />,
+    children: [{ path: "/done", element: <DoneListPage /> }],
   },
 ]);
 

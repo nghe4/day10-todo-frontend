@@ -3,6 +3,14 @@ import { useReducer } from "react";
 import { TodoContext } from "./contexts/TodoContext";
 import { todoReducer } from "./reducers/TodoReducer";
 import { TodoList } from "./components/TodoList";
+import { createBrowserRouter, RouterProvider } from "react-router";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <TodoList />,
+  },
+]);
 
 export const initState = [
   { id: 1, text: "the first todo", done: false },
@@ -14,7 +22,7 @@ function App() {
   return (
     <main>
       <TodoContext.Provider value={{ state, dispatch }}>
-        <TodoList />
+        <RouterProvider router={router} />
       </TodoContext.Provider>
     </main>
   );

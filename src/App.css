@@ -1,17 +1,45 @@
-.App {
+.ant-layout {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+}
+
+.ant-layout .ant-layout-content {
+  flex: 1;
+  padding: 0 50px; 
+}
+
+/* Fix the Footer at the bottom */
+.ant-layout .ant-layout-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  background-color: #f0f2f5; 
+  padding: 16px 50px; 
+}
+
+h1 {
   text-align: center;
 }
 
 .todo-item {
-  width: 320px;
+  width: 800px;
   padding: 8px;
   border: 1px solid grey;
   text-align: center;
   cursor: pointer;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.todo-item span {
+  flex: 1;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap;
 }
 
 .todo-item .done {
@@ -33,7 +61,6 @@
 .todo-generator input {
   width: 200px;
   padding: 6px;
-  border: 1px solid grey;
 }
 
 .todo-generator button {

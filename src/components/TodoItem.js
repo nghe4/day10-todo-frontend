@@ -3,6 +3,12 @@ import { useNavigate } from "react-router";
 import { TodoContext } from "../contexts/TodoContext";
 import { useTodoService } from "../useTodoService";
 import { TodoEditModal } from "./TodoEditModal";
+import { Button } from "antd";
+import {
+  EditOutlined,
+  DeleteOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 
 export const TodoItem = ({ todo }) => {
   const { dispatch } = useContext(TodoContext);
@@ -44,10 +50,12 @@ export const TodoItem = ({ todo }) => {
     <div className="todo-item-container">
       <div className="todo-item" onClick={makeAsDone}>
         <span className={todo.done ? "done" : ""}>{todo.text}</span>
+        <div>
+          <Button icon={<SearchOutlined />} onClick={viewDetail} />
+          <Button icon={<EditOutlined />} onClick={showModal} />
+          <Button icon={<DeleteOutlined />} onClick={deleteItem} danger />
+        </div>
       </div>
-      <button onClick={viewDetail}>Detail</button>
-      <button onClick={showModal}>Edit</button>
-      <button onClick={deleteItem}>X</button>
       <TodoEditModal todo={todo} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );

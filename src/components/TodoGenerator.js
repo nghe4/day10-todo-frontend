@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useState } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 import { useTodoService } from "../useTodoService";
+import { Input, Button } from "antd";
 
 export const TodoGenerator = () => {
   const [input, setInput] = useState("");
@@ -22,8 +23,8 @@ export const TodoGenerator = () => {
 
   return (
     <div className="todo-generator">
-      <input type="text" value={input} onChange={handleInputChange} />
-      <button onClick={handleAddTodo}>Add</button>
+      <Input value={input} onChange={handleInputChange} variant="outlined" />
+      <Button onClick={handleAddTodo}>Add</Button>
     </div>
   );
 };

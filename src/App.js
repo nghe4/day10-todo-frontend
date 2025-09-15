@@ -8,6 +8,7 @@ import {
   NavLink,
   Outlet,
   RouterProvider,
+  useRouteError,
 } from "react-router";
 
 const DefaultLayout = () => {
@@ -27,10 +28,20 @@ const DefaultLayout = () => {
   );
 };
 
+const ErrorPage = () => {
+  const error = useRouteError();
+  return (
+    <div>
+      {error.status === 404 ? <h1>404 Not Found</h1> : JSON.stringify(error)}
+    </div>
+  );
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <DefaultLayout />,
+    errorElement: <ErrorPage />,
     children: [{ path: "/", element: <TodoList /> }],
   },
 ]);

@@ -2,7 +2,7 @@ import "./App.css";
 import { useReducer } from "react";
 import { TodoContext } from "./contexts/TodoContext";
 import { todoReducer } from "./reducers/TodoReducer";
-import { TodoList } from "./components/TodoList";
+import { HomePage } from "./pages/HomePage";
 import { ErrorPage } from "./pages/ErrorPage";
 import {
   createBrowserRouter,
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <DefaultLayout />,
     errorElement: <ErrorPage />,
-    children: [{ path: "/", element: <TodoList /> }],
+    children: [{ path: "/", element: <HomePage /> }],
   },
 ]);
 

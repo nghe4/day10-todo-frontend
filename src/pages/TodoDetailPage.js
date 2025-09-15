@@ -13,9 +13,9 @@ export const TodoDetailPage = () => {
   }
 
   return (
-    <>
-      {JSON.stringify(todo)}
-      <TodoItem todo={todo} />
-    </>
+    <div>
+      <h1>Todo #{todo.id}</h1>
+      <p className="todo-detail">{todo.text}</p>
+    </div>
   );
 };

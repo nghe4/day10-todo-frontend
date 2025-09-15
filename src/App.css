@@ -73,3 +73,7 @@ h1 {
 .todo-generator {
   margin-top: 10px;
 }
+
+.todo-detail {
+  font-size: 24px;
+}

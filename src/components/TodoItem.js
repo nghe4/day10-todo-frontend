@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router";
 import { TodoContext } from "../contexts/TodoContext";
 
 export const TodoItem = ({ todo }) => {
   const { dispatch } = useContext(TodoContext);
+  const navigate = useNavigate();
 
   const makeAsDone = () => {
     dispatch({
@@ -19,7 +21,7 @@ export const TodoItem = ({ todo }) => {
   };
 
   const viewDetail = () => {
-    window.location.href = `/todo/${todo.id}`;
+    navigate(`/todo/${todo.id}`);
   };
 
   return (

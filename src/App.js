@@ -9,7 +9,7 @@ import { TodoDetailPage } from "./pages/TodoDetailPage";
 import { DoneListPage } from "./pages/DoneListPage";
 import { DefaultLayout } from "./components/DefaultLayout";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import axios from "axios";
+import { api } from "./api/mockApi";
 
 const router = createBrowserRouter([
   {
@@ -34,12 +34,6 @@ const router = createBrowserRouter([
     children: [{ path: "/done", element: <DoneListPage /> }],
   },
 ]);
-
-const api = axios.create({
-  baseURL: "https://68c7ac8e5d8d9f5147328736.mockapi.io/",
-  headers: { "Content-Type": "application/json" },
-  timeout: 1000,
-});
 
 function App() {
   const [state, dispatch] = useReducer(todoReducer, []);

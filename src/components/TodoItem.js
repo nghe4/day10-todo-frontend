@@ -21,7 +21,7 @@ export const TodoItem = ({ todo }) => {
   const makeAsDone = () => {
     updateTodo(todo.id, { ...todo, done: !todo.done }).then((todo) => {
       dispatch({
-        type: "TOGGLE_TODO",
+        type: "UPDATE_TODO",
         payload: todo,
       });
     });

@@ -7,35 +7,8 @@ import { ErrorPage } from "./pages/ErrorPage";
 import { AboutUsPage } from "./pages/AboutUsPage";
 import { TodoDetailPage } from "./pages/TodoDetailPage";
 import { DoneListPage } from "./pages/DoneListPage";
-import {
-  createBrowserRouter,
-  NavLink,
-  Outlet,
-  RouterProvider,
-} from "react-router";
-
-const DefaultLayout = () => {
-  return (
-    <div>
-      <header>
-        <nav>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/done">Done List</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About Us</NavLink>
-          </li>
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
-};
+import { DefaultLayout } from "./components/DefaultLayout";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 const router = createBrowserRouter([
   {

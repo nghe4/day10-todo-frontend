@@ -43,11 +43,11 @@ export const initState = [
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initState);
   return (
-    <main>
+    <div className="App">
       <TodoContext.Provider value={{ state, dispatch }}>
         <RouterProvider router={router} />
       </TodoContext.Provider>
-    </main>
+    </div>
   );
 }
 

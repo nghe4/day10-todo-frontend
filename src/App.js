@@ -9,7 +9,7 @@ import { TodoDetailPage } from "./pages/TodoDetailPage";
 import { DoneListPage } from "./pages/DoneListPage";
 import { DefaultLayout } from "./components/DefaultLayout";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import { api } from "./api/mockApi";
+import { useTodoService } from "./useTodoService";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +37,10 @@ const router = createBrowserRouter([
 
 function App() {
   const [state, dispatch] = useReducer(todoReducer, []);
-
+  const { loadTodos } = useTodoService();
   useEffect(() => {
-    api.get("/todos").then((response) => {
-      dispatch({ type: "LOAD_TODOS", payload: response.data });
+    loadTodos().then((todos) => {
+      dispatch({ type: "LOAD_TODOS", payload: todos });
     });
   }, [dispatch]);
 

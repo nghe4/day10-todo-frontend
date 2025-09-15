@@ -3,7 +3,7 @@ export const todoReducer = (state, action) => {
     case "TOGGLE_TODO":
       return state.map((item) => {
         if (item.id === action.payload.id) {
-          return { ...item, done: !item.done };
+          return action.payload;
         }
         return item;
       });

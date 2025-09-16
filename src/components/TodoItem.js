@@ -48,8 +48,10 @@ export const TodoItem = ({ todo }) => {
 
   return (
     <div className="todo-item-container">
-      <div className="todo-item" onClick={makeAsDone}>
-        <span className={todo.done ? "done" : ""}>{todo.text}</span>
+      <div className="todo-item">
+        <span className={todo.done ? "done" : ""} onClick={makeAsDone}>
+          {todo.text}
+        </span>
         <div>
           <Button icon={<SearchOutlined />} onClick={viewDetail} />
           <Button icon={<EditOutlined />} onClick={showModal} />

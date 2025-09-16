@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { useState } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 import { useTodoService } from "../useTodoService";
-import { Input, Button, message } from "antd";
+import { Input, Button } from "antd";
+import { validateTodoText } from "../utils/validation";
 
 export const TodoGenerator = () => {
   const [input, setInput] = useState("");
@@ -14,10 +15,7 @@ export const TodoGenerator = () => {
   };
 
   const handleAddTodo = () => {
-    if (input.trim() === "") {
-      message.error("Todo text cannot be empty");
-      return;
-    }
+    if (!validateTodoText(input)) return;
     createTodo(input.trim()).then((data) => {
       dispatch({ type: "ADD_TODO", payload: data });
       setInput("");

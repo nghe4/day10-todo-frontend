@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { TodoContext } from "../contexts/TodoContext";
 import { useTodoService } from "../useTodoService";
-import { message, Modal } from "antd";
+import { Modal } from "antd";
 import TextArea from "antd/es/input/TextArea";
+import { validateTodoText } from "../utils/validation";
 
 export const TodoEditModal = ({ todo, isOpen, onClose }) => {
   const { dispatch } = useContext(TodoContext);
@@ -10,10 +11,7 @@ export const TodoEditModal = ({ todo, isOpen, onClose }) => {
   const [editText, setEditText] = useState(todo.text);
 
   const handleOk = () => {
-    if (editText.trim() === "") {
-      message.error("Todo text cannot be empty");
-      return;
-    }
+    if (!validateTodoText(editText)) return;
     updateTodo(todo.id, { ...todo, text: editText }).then((updatedTodo) => {
       dispatch({
         type: "UPDATE_TODO",

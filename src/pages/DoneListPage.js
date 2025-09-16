@@ -8,11 +8,11 @@ export const DoneListPage = () => {
   return (
     <div>
       <h1>Done List</h1>
-      <ul>
-        {doneTodos.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} />
-        ))}
-      </ul>
+      <div>
+        {doneTodos.length === 0
+          ? "No done todos yet"
+          : doneTodos.map((todo) => <TodoItem todo={todo} key={todo.id} />)}
+      </div>
     </div>
   );
 };
